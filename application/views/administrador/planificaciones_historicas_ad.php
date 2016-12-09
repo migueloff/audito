@@ -43,10 +43,38 @@
 
                             
                                 <?php echo $output; ?>
+
+
+                   <?php
+                   
+                     $consulta = $this->mod_usuarios->consulta_nom();
+                     $consulta2= $this->mod_usuarios->consulta_ape();
+                     $aux = count($consulta);
+                      ?>
+                   
+
+                          <div class="form-group">
+                        <label for="nombre" class="control-label col-xs-4">Nombre profesor</label>
+                        <div class="col-xs-5">
+                            <select name = "plan" class="col-xs-12">  
+                        <?php $i=0; 
+
+                            for ($i=0; $i <$aux ; $i++) { ?>
+                                <option  value="<?php echo $consulta[$i].' '.$consulta2[$i] ?>" > <?php echo $consulta[$i].' '.$consulta2[$i] ?> </option>
+                           <?php }
+
+                        ?>  
+                             </select> 
+                            <span class="help-block"></span>
+                        </div>
+
+                          <button class="btn btn-primary col-xs-5 col-xs-offset-4"  type="submit" ><span class="glyphicon glyphicon-log-in"></span> Aceptar</button> 
+                    </div>
                 
                 <!-- /.row -->
 
             </div>
+
             <!-- /.container-fluid -->
 
         </div>
